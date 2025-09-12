@@ -13,8 +13,12 @@ dependencies = [
   "python-dotenv >=1.0.1,<2.0.0",
 ]
 
+
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling>=1.25"]
 build-backend = "hatchling.build"
 
-# Original [tool.poetry] has been migrated to PEP 621 by migrate2uv.sh
+[tool.hatch.build.targets.wheel]
+packages = [
+  "src/helperscripts",
+]
