@@ -1,18 +1,24 @@
-[tool.poetry]
+[project]
 name = "helperScripts"
 version = "0.1.0"
 description = "General-purpose Python utilities for the matrix project."
-authors = ["Suhail <suhailece@gmail.com>"]
-license = "MIT"
 readme = "README.md"
-packages = [{include = "helperscripts", from = "src"}]
+requires-python = ">=3.11,<4.0"
+license = { text = "MIT" }
+keywords = []
+classifiers = []
+dependencies = [
+  "jinja2 >=3.1.4,<4.0.0",
+  "keyring >=25.5.0,<26.0.0",
+  "python-dotenv >=1.0.1,<2.0.0",
+]
 
-[tool.poetry.dependencies]
-python = ">=3.11,<4.0"
-keyring = "^25.5.0"
-jinja2 = "^3.1.4"
-python-dotenv = "^1.0.1"
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = [
+  "src/helperscripts",
+]
